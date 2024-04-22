@@ -284,3 +284,132 @@ remote:
 To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
  * [new branch]      ft/bundle-2 -> ft/bundle-2
 ```
+
+### Exercise 2
+
+```bash
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/bundle-2)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git pull origin main
+remote: Enumerating objects: 2, done.
+remote: Counting objects: 100% (2/2), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), 1.73 KiB | 110.00 KiB/s, done.
+From github.com:Angekarara/Gym-Git-Exercise-Solutions
+ * branch            main       -> FETCH_HEAD
+   e236394..64bf75f  main       -> origin/main
+Updating e236394..64bf75f
+Fast-forward
+ README.md                | 285 +++++++++++++++++++++++++++++++++++++++++++++++
+ index.html => about.html |   2 +-
+ home.html                |   0
+ services.html            |  11 ++
+ team.html                |   9 ++
+ 5 files changed, 306 insertions(+), 1 deletion(-)
+ rename index.html => about.html (86%)
+ create mode 100644 home.html
+ create mode 100644 services.html
+ create mode 100644 team.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git checkout -b ft/service-redesign
+Switched to a new branch 'ft/service-redesign'
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/service-redesign)
+$ git add services.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/service-redesign)
+$ git commit -m "changes on service file"
+[ft/service-redesign e8b8194] changes on service file
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/service-redesign)
+$ git push origin ft/service-redesign
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 316 bytes | 316.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'ft/service-redesign' on GitHub by visiting:
+remote:      https://github.com/Angekarara/Gym-Git-Exercise-Solutions/pull/new/ft/service-redesign
+remote:
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+ * [new branch]      ft/service-redesign -> ft/service-redesign
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/service-redesign)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git add services.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git commit -m "service changes"
+[main 2e0745e] service changes
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 310 bytes | 310.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+   64bf75f..2e0745e  main -> main
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git checkout ft/service-redesign
+Switched to branch 'ft/service-redesign'
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/service-redesign)
+$ git diff main
+diff --git a/services.html b/services.html
+index 4490bed..9ae7f05 100644
+--- a/services.html
++++ b/services.html
+@@ -3,9 +3,9 @@
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>services1</title>
++    <title>services3</title>
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/service-redesign)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git merge ft/service-redesign
+Auto-merging services.html
+CONFLICT (content): Merge conflict in services.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main|MERGING)
+$ git add services.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main|MERGING)
+$ git commit -m"changes"
+[main c5fa93d] changes
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git push
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 209 bytes | 209.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+   2e0745e..c5fa93d  main -> main
+```

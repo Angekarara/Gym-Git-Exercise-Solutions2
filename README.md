@@ -413,3 +413,241 @@ Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
    2e0745e..c5fa93d  main -> main
 ```
+
+## Bundle 3
+
+### Exercise 1
+
+```bash
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git checkout -b ft/team-page
+Switched to a new branch 'ft/team-page'
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/team-page)
+$ git status
+On branch ft/team-page
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   team.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/team-page)
+$ git add team.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/team-page)
+$ git commit -m"new changes"
+[ft/team-page be3dade] new changes
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/team-page)
+$ git push origin ft/team-page
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 286 bytes | 286.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'ft/team-page' on GitHub by visiting:
+remote:      https://github.com/Angekarara/Gym-Git-Exercise-Solutions/pull/new/ft/team-page
+remote:
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+ * [new branch]      ft/team-page -> ft/team-page
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/team-page)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git checkout -b ft/contact-page
+Switched to a new branch 'ft/contact-page'
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git checkout ft/team-page
+Switched to branch 'ft/team-page'
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/team-page)
+$ git log
+commit be3dade3982c80997cfc70b8af067406006017d1 (HEAD -> ft/team-page, origin/ft/team-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 13:25:38 2024 +0200
+
+    new changes
+
+commit 1019e128f85b4d11963c2685f0a532118f70319c (origin/main, main, ft/contact-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 13:18:38 2024 +0200
+
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/team-page)
+$ git checkout ft/contact-page
+Switched to branch 'ft/contact-page'
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git log ft/team-page
+commit be3dade3982c80997cfc70b8af067406006017d1 (origin/ft/team-page, ft/team-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 13:25:38 2024 +0200
+
+    new changes
+
+commit 1019e128f85b4d11963c2685f0a532118f70319c (HEAD -> ft/contact-page, origin/main, main)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 13:18:38 2024 +0200
+
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git cherry-pick be3dade3982c80997cfc70b8af067406006017d1
+[ft/contact-page 617683a] new changes
+ Date: Mon Apr 22 13:25:38 2024 +0200
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git add contact.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git commit -m "contact page"
+[ft/contact-page df6f7eb] contact page
+ 1 file changed, 11 insertions(+)
+ create mode 100644 contact.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git push
+fatal: The current branch ft/contact-page has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin ft/contact-page
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git push origin ft/contact-page
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 705 bytes | 705.00 KiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'ft/contact-page' on GitHub by visiting:
+remote:      https://github.com/Angekarara/Gym-Git-Exercise-Solutions/pull/new/ft/contact-page
+remote:
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+ * [new branch]      ft/contact-page -> ft/contact-page
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/contact-page)
+$ git checkout -b ft/faq-page
+Switched to a new branch 'ft/faq-page'
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git add faq.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git commit -m "faq file"
+[ft/faq-page e7be806] faq file
+ 1 file changed, 11 insertions(+)
+ create mode 100644 faq.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git push origin ft/faq-page
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 416 bytes | 416.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ft/faq-page' on GitHub by visiting:
+remote:      https://github.com/Angekarara/Gym-Git-Exercise-Solutions/pull/new/ft/faq-page
+remote:
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+ * [new branch]      ft/faq-page -> ft/faq-page
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git log
+commit e7be806166af931b348522200a798795c0687c2c (HEAD -> ft/faq-page, origin/ft/faq-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 14:10:23 2024 +0200
+This reverts commit e7be806166af931b348522200a798795c0687c2c.
+
+    faq file
+
+commit df6f7eba83ee2e650af1ab4fccabb577d190cecb (origin/ft/contact-page, ft/contact-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 13:59:11 2024 +0200
+
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git revert e7be806166af931b348522200a798795c0687c2c
+hint: Waiting for your editor to close the file... Vim: Error reading input, exiting...
+Vim: Finished.
+error: There was a problem with the editor 'vi'.
+Please supply the message using either -m or -F option.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git revert e7be806166af931b348522200a798795c0687c2c
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git log
+commit e7be806166af931b348522200a798795c0687c2c (HEAD -> ft/faq-page, origin/ft/faq-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 14:10:23 2024 +0200
+
+    faq file
+
+commit df6f7eba83ee2e650af1ab4fccabb577d190cecb (origin/ft/contact-page, ft/contact-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 13:59:11 2024 +0200
+
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git revert df6f7eba83ee2e650af1ab4fccabb577d190cecb
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git log
+commit e7be806166af931b348522200a798795c0687c2c (HEAD -> ft/faq-page, origin/ft/faq-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 14:10:23 2024 +0200
+
+    faq file
+
+commit df6f7eba83ee2e650af1ab4fccabb577d190cecb (origin/ft/contact-page, ft/contact-page)
+Author: Angekarara <mbabange2020@gmail.com>
+Date:   Mon Apr 22 13:59:11 2024 +0200
+
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git add .
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git commit -m "new changes"
+[ft/faq-page 2cdc9d0] new changes
+ 1 file changed, 11 deletions(-)
+ delete mode 100644 faq.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/faq-page)
+$ git push origin ft/faq-page
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 223 bytes | 223.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+   e7be806..2cdc9d0  ft/faq-page -> ft/faq-page
+```

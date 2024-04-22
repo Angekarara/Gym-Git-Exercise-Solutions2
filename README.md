@@ -748,3 +748,89 @@ To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
 ## Bundle 4
 
 ### Exercise 1
+
+```bash
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (ft/home-page-redesign)
+$ git checkout main
+M       README.md
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git remote add git-copy git@github.com:Angekarara/Gym-Git-Exercise-Solutions2.git
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+        modified:   home.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git add home.html
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git commit -m "home changes"
+[main 53cd77d] home changes
+ 1 file changed, 11 insertions(+)
+ Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git push origin main
+git push git-copy main
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:Angekarara/Gym-Git-Exercise-Solutions.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Enumerating objects: 60, done.
+Counting objects: 100% (60/60), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (58/58), done.
+Writing objects: 100% (60/60), 11.83 KiB | 504.00 KiB/s, done.
+Total 60 (delta 32), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (32/32), done.
+To github.com:Angekarara/Gym-Git-Exercise-Solutions2.git
+ * [new branch]      main -> main
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git pull origin
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 898 bytes | 128.00 KiB/s, done.
+Merge branch 'main' of github.com:Angekarara/Gym-Git-Exercise-Solutions
+Merge branch 'main' of github.com:Angekarara/Gym-Git-Exercise-Solutions
+#
+From github.com:Angekarara/Gym-Git-Exercise-Solutions
+   1f40f33..78e6b63  main       -> origin/main
+hint: Waiting for your editor to close the file... Vim: Error reading input, exiting...
+Vim: Finished.
+
+error: There was a problem with the editor 'vi'.
+Not committing merge; use 'git commit' to complete the merge.
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main|MERGING)
+$ git commit
+[main 6f2b68b] Merge branch 'main' of github.com:Angekarara/Gym-Git-Exercise-Solutions
+
+Ange@amica MINGW64 ~/Gym-Git-Exercise-Solutions (main)
+$ git push origin
+Enumerating objects: 13, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 1.37 KiB | 700.00 KiB/s, done.
+Total 7 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To github.com:Angekarara/Gym-Git-Exercise-Solutions.git
+   78e6b63..6f2b68b  main -> main
+
+```
